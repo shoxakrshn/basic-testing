@@ -14,6 +14,9 @@ const testCases = [
   { a: 15, b: 3, action: Action.Divide, expected: 5 },
   { a: 18, b: 2, action: Action.Divide, expected: 9 },
   { a: 28, b: 4, action: Action.Divide, expected: 7 },
+  { a: 2, b: 3, action: Action.Exponentiate, expected: 8 },
+  { a: 3, b: 2, action: Action.Exponentiate, expected: 9 },
+  { a: 4, b: 2, action: Action.Exponentiate, expected: 16 },
   { a: '28', b: 4, action: Action.Divide, expected: null },
   { a: 28, b: 4, action: '&', expected: null },
 ];
