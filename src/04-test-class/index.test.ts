@@ -1,5 +1,9 @@
 // Uncomment the code below and write your tests
-import { getBankAccount } from '.';
+import {
+  getBankAccount,
+  InsufficientFundsError,
+  SynchronizationFailedError,
+} from '.';
 import _ from 'lodash';
 
 describe('BankAccount', () => {
@@ -23,7 +27,7 @@ describe('BankAccount', () => {
 
     const withdraw = () => account.withdraw(withdrawAmount);
 
-    expect(withdraw).toThrowError();
+    expect(withdraw).toThrowError(InsufficientFundsError);
   });
 
   test('should throw error when transferring more than balance', () => {
@@ -112,6 +116,8 @@ describe('BankAccount', () => {
 
     jest.spyOn(account, 'fetchBalance').mockResolvedValue(null);
 
-    await expect(() => account.synchronizeBalance()).rejects.toThrowError();
+    await expect(() => account.synchronizeBalance()).rejects.toThrowError(
+      SynchronizationFailedError,
+    );
   });
 });
