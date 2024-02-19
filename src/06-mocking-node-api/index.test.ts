@@ -65,7 +65,7 @@ describe('doStuffByInterval', () => {
     doStuffByInterval(mockCallback, mockInterval);
     jest.advanceTimersByTime(mockInterval);
 
-    expect(mockCallback.mock.calls.length).toBeGreaterThan(1);
+    expect(mockCallback).toHaveBeenCalledTimes(2);
   });
 });
 
